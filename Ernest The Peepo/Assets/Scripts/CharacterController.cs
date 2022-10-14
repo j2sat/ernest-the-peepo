@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField] private float speed = 20f;
     private Rigidbody2D myRigidBody;
+    
     
 
     // Start is called before the first frame update
@@ -29,7 +31,8 @@ public class CharacterController : MonoBehaviour
     {
         Vector2 movement = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
         //(1,0)
-        myRigidBody.MovePosition(myRigidBody.position+movement*Time.deltaTime);
+        myRigidBody.MovePosition(myRigidBody.position+movement*Time.fixedDeltaTime*speed);
+        //test
         
         // myRigidBody.MovePosition();
     }
